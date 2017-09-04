@@ -8,8 +8,9 @@ categories: [intro]
 image:
     feature: feature.jpg
     credit: dargadgetz
-    creditlink: http://www.dargadgetz.com/ios-8-abstract-wallpaper-pack-for-iphone-5s-5c-and-ipod-touch-retina/
+    creditlink: https://www.dargadgetz.com/ios-8-abstract-wallpaper-pack-for-iphone-5s-5c-and-ipod-touch-retina/
 ---
+
 
 Below is just about everything you'll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
 
@@ -37,6 +38,8 @@ Lorem ipsum dolor sit amet, test link adipiscing elit. **This is strong**. Nulla
 HTML and <abbr title="cascading stylesheets">CSS<abbr> are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.
 
 If you want to show just a part of your post in the come page, add the ``<!-- more -->`` tag to your post content. Everything after this tag will be hidden from the page listing page.
+
+<!--more-->
 
 ### Blockquotes
 
