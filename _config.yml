@@ -1,4 +1,4 @@
-title:            Blog Title
+title:            ML & Stats
 description:      Describe your website here.
 
 # put your disqus here
@@ -20,10 +20,8 @@ url: https://MarkusThill.github.io
 menu:
   - title: 'Home'
     url: '/'
-  - title: 'Fork'
-    url: 'https://github.com/aron-bordin/neo-hpstr-jekyll-theme'
-  - title: 'Install'
-    url: 'https://github.com/aron-bordin/neo-hpstr-jekyll-theme#installation'
+  - title: 'About'
+    url: '/markus'
   - title: 'Tags'
     url: '/tags'
   - title: 'Categories'
@@ -39,15 +37,15 @@ menu:
 
 # Owner/author information
 owner:
-  name:           Your name
-  site:           https://aronbordin.com
+  name:           Markus Thill
+  site:           https://markusthill.github.io
   avatar:         images/avatar.jpg
   bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
   email:          you@email.com
   # Twitter nick for use in Twitter cards and follow button.
-  twitter: aron_bordin # if no twitter in this config, the twitter follow button will be removed
+  twitter: # if no twitter in this config, the twitter follow button will be removed
   # GitHub nick for use in follow button in author block.
-  github: aron-bordin
+  github: MarkusThill
 
 # Twitter account associated with the site if different from owner/author twitter account.
 # Used in Twitter cards.
@@ -56,11 +54,9 @@ twitter:
 # Social networking links used in author block underneath posts. Update and remove as you like.
 social:
   - title: "github"
-    url: "https://github.com/aron-bordin"
+    url: "https://github.com/markusthill"
   - title: "linkedin"
-    url: "https://br.linkedin.com/in/aronbordin"
-  - title: "youtube"
-    url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
+    url: "https://www.linkedin.com/in/markus-thill-a4991090/"
 
 # Background image to be tiled on all pages
 background:
@@ -72,8 +68,8 @@ google_verify:
 bing_verify:
 
 # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
-locale:      en_US
+timezone:    Europe/Berlin
+locale:      de_DE
 future:      true
 highlighter: rouge
 markdown:    kramdown
