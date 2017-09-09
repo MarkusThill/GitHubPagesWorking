@@ -2,13 +2,13 @@
 layout: post
 title: Sampling with Replacement and Random Forests
 modified:
-categories:
-description:
+categories: Stats, ML
+description: Often one has to consider the problem where a sample has to be drawn of a set containing n elements, where the sample also has the size. For instance Random Forests sample the training data n times with replacement for each decision tree. One question arises in this case How many unique training examples can we expect in the sample? Since we sample with replacement, several examples will be drawn twice most likely. To calculate the expected number of unique examples, one can proceed as follows. First we define a random Variable Xi which defines the events Example i was (Xi 1) or  was not (Xi 0) selected by the sampling process. Based on the probability of these events, we can formulate an expected value for each individual which shows how many times an example is selected on average
 tags: []
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: feature.jpg
+  credit: dargadgetz
+  creditlink: https://www.dargadgetz.com/ios-8-abstract-wallpaper-pack-for-iphone-5s-5c-and-ipod-touch-retina/
 comments:
 share:
 date: 2017-09-07T19:37:32+02:00
@@ -25,7 +25,7 @@ $$
 \end{align}
 $$
 
-The probability $$P(X_i=0)$$ can be computed easier than $$P(X_i=1)$$. Since we sample the set $$n$$ times, the probability of \emph{not} selecting element $$i$$ in any step is:
+The probability $$P(X_i=0)$$ can be computed easier than $$P(X_i=1)$$. Since we sample the set $$n$$ times, the probability of not selecting element $$i$$ in any step is:
 
 $$
 \begin{align}

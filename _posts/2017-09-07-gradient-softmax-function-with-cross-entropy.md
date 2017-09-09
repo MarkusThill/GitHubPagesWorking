@@ -6,9 +6,9 @@ categories:
 description:
 tags: []
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: abstract-1s.png
+  credit: dargadgetz
+  creditlink: https://www.dargadgetz.com/ios-8-abstract-wallpaper-pack-for-iphone-5s-5c-and-ipod-touch-retina/
 comments:
 share:
 date: 2017-09-07T19:29:40+02:00
