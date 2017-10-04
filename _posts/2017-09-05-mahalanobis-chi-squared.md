@@ -2,13 +2,13 @@
 layout: post
 title: The Relationship between the Mahalanobis Distance and the Chi-Squared Distribution
 modified:
-categories: Stats, ML
+categories: [Stats, ML]
 description:
 tags: []
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: 1141s.jpg
+  credit: Designed by onlyyouqj / Freepik
+  creditlink: http://www.freepik.com
 comments:
 share:
 date: 2017-09-05T21:18:12+02:00
@@ -19,6 +19,10 @@ date: 2017-09-05T21:18:12+02:00
    \def\tp{\mathsf T}
 \\)
 
+## Introduction
+
+
+<!--more-->
 
 ## Prerequisites
 

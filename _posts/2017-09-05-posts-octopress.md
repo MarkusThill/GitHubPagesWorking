@@ -2,13 +2,13 @@
 layout: post
 title: Creating new Posts in Jekyll with Octopress
 modified:
-categories: Template
+categories: [Template]
 description: Cheatsheet for Markdown, Creating new Pages and Posts, Highlighting code, Optimization for Search Engines,
 tags: [SEO, Search Engine Optimization]
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: 1141ss.jpg
+  credit: Designed by onlyyouqj / Freepik
+  creditlink: http://www.freepik.com
 comments:
 share:
 date: 2017-09-05T20:09:19+02:00

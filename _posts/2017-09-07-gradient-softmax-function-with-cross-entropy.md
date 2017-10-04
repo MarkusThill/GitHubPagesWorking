@@ -2,7 +2,7 @@
 layout: post
 title: Gradient of the Softmax Function with Cross-Entropy Loss
 modified:
-categories:
+categories: [Stats, ML]
 description:
 tags: []
 image:
@@ -15,6 +15,8 @@ date: 2017-09-07T19:29:40+02:00
 ---
 
 Some neat intro here.
+
+<!--more-->
 
 The general Softmax function for a unit $$z_j$$ is defined as:
 \begin{eqnarray}

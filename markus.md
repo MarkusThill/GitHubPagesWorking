@@ -1,11 +1,15 @@
 ---
 layout: page
 title: Markus
+tags: [Markus Thill, Machine Learning, Statistics]
 share: true
 ---
 
 {% include author.html %}
 
-# Publications
-
 # Projects
+
+# Publications
+{% bibliography %}
+
+<!--- {% bibliography --file thesis %} -->
