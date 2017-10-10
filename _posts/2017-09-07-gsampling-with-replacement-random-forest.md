@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sampling with Replacement and its Relationship to Random Forests
-modified:
+modified: 2017-10-04T19:37:32+02:00
 categories: [Stats, ML]
 description: Often one has to consider the problem where a sample has to be drawn of a set containing n elements, where the sample also has the size. For instance Random Forests sample the training data n times with replacement for each decision tree. One question arises in this case How many unique training examples can we expect in the sample? Since we sample with replacement, several examples will be drawn twice most likely. To calculate the expected number of unique examples, one can proceed as follows. First we define a random Variable Xi which defines the events Example i was (Xi 1) or  was not (Xi 0) selected by the sampling process. Based on the probability of these events, we can formulate an expected value for each individual which shows how many times an example is selected on average
 tags: []
@@ -161,4 +161,4 @@ $$
 \end{align}
 $$
 
-Hence, random forests leave out roughly 1/3 of the cases in the training sample, which is used later for a so called out-of-bag (OOB) error estimate. 
+Hence, random forests leave out roughly 1/3 of the cases in the training sample, which is used later for a so called out-of-bag (OOB) error estimate.
