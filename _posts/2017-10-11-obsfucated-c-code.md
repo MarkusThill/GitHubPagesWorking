@@ -2,7 +2,7 @@
 layout: post
 title: Obfuscating a Function &#8211; How not to write Code
 modified:
-categories:
+categories: [Programming]
 description:
 tags: []
 image:

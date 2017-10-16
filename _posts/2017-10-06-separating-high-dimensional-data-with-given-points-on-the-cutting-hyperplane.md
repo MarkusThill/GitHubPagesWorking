@@ -12,6 +12,7 @@ image:
 comments:
 share:
 date: 2017-10-06T20:42:49+02:00
+permalink: /separating-highD-data/
 ---
 
 \\(

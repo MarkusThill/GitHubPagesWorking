@@ -30,10 +30,10 @@ menu:
   - title: 'Favorites'
     url: '#'
     submenu:
-      - title: 'Code Highlighter'
-        url: '/intro/code-highlighting-post/'
-      - title: 'Sample Post'
-        url: '/intro/sample-post/'
+      - title: 'Mahalanobis Distance is Chi-Squared'
+        url: '/mahalanbis-chi-squared/' # configured with permalink in markdown file of post
+      - title: 'Separating high-dimensional Data'
+        url: '/separating-highD-data/' # configured with permalink in markdown file of post
 
 # Owner/author information
 owner:

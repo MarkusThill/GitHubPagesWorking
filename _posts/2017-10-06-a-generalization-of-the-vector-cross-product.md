@@ -48,7 +48,7 @@ But what about higher dimensions? For example, how would you define the cross pr
 
 <!--more-->
 
-As it turns out, it is not that difficult to compute the cross product in any dimension $$n \leq 2$$.
+As it turns out, it is not that difficult to compute the cross product in any dimension $$n \geq 2$$.
 If we are in a space $$\mathbb{R}^n$$, we need $$n-1$$ vectors, each with $$n$$ elements, that are pairwise linearly independent (note that if two or more vectors are colinear then the cross product will be zero). Hence, we have a set of vectors
 
 $$
@@ -246,7 +246,7 @@ $$
 which is exactly the same as we have already noted in the beginning.
 
 
-Note that the base package in $$R$$ provides a function $$crossprod()$$ which, however, does not compute the cross product as described in this blog post. For this reason I provide a $$R$$-function here, which efficiently computes the cross product for arbitrary dimensions.
+Note that the base package in $$R$$ provides a function `crossprod()` which, however, does not compute the cross product as described in this blog post. For this reason I provide a $$R$$-function here, which efficiently computes the cross product for arbitrary dimensions.
 
 {% highlight R %}
 opX <- function(...) {

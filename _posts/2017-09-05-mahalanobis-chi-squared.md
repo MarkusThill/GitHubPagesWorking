@@ -12,6 +12,7 @@ image:
 comments:
 share:
 date: 2017-09-05T21:18:12+02:00
+permalink: /mahalanbis-chi-squared/
 ---
 
 \\(
