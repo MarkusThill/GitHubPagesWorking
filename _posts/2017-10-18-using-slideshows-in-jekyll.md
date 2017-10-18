@@ -22,7 +22,7 @@ When you have many images for a blog post it might make sense to organize all im
 
  into your own `head.html` and from your main config-file `_config.yml` copy the lines
 
-{% highlight html %}
+{% highlight markdown %}
  defaults:
    -
      scope:
@@ -45,15 +45,20 @@ into your config file. In order to resize the slideshows properly, you can add t
 </script>
 {% endhighlight %}
 
-###
-permalink: /slides/mypics1.html
+Finally, you have to ensure that a permalink is used in the Markdown files. For instance in the file `_slides/my-pics1.md` you add the permalink in the header is specified as follows:
 
+{% highlight markdown %}
+permalink: /slides/my-pics1.html
+{% endhighlight %}
+
+This html file name will be used later (e.g. in a blog post) to embed the corresponding slideshow. We achieve this, by using an iframe, for example:
 
 {% highlight html %}
 <iframe class="slideshow-iframe" src="{{ site.url}}/slides/my-pics1.html"
 style="width:100%" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>`
 {% endhighlight %}
 
-<iframe class="slideshow-iframe" src="{{ site.url}}/slides/my-pics1.html" style="width:100%" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>
+The result then looks like this:
 
-js to adjust height
+<iframe class="slideshow-iframe" src="{{ site.url}}/slides/my-pics1.html" style="width:100%" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>
+*Pictures from [this album](https://unsplash.com/collections/curated/93) by [Ben Blumenfeld](http://designerfund.com).*
