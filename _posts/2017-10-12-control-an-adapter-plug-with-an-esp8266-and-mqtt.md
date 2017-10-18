@@ -134,4 +134,175 @@ Now, after you are sure that your ESP is working as desired and you are comforta
 The following images show how the circuit board and the final adapter plug could look like:
 <iframe class="slideshow-iframe" src="{{ site.url}}/slides/controlAdapterPlug.html" style="width:100%" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>
 
-Source code:
+## Source code
+So now we just need some program, which can be used to control the adapter plug via MQTT.
+
+{% highlight C++ %}
+ #include <ESP8266WiFi.h>
+ #include <PubSubClient.h>
+ #include <string.h>
+ #define SLEEP_DELAY_IN_SECONDS  10
+ #define TOPIC_ROOT "gf3heTS11c"
+ #define DEVICE_ID  "plug-01"
+ #define SLASH "/"
+ #define CMD_RELAIS_ON "device=on"
+ #define CMD_RELAIS_OFF "device=off"
+
+
+const char* ssid = "MySSID";
+const char* password = "mypass";
+const char* mqtt_server = "iot.eclipse.org";
+const char* mqtt_username = "MeMyselfandI";
+const char* mqtt_password = "none";
+const char* mqtt_pubs_topic = "myTopic/test";
+const char* mqtt_subs_topic = TOPIC_ROOT SLASH DEVICE_ID;
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+// GPIO-pin 2, used for activating the relais
+int GPIO2 = 2;
+// GPIO-pin 0, used as input for manually turning on/off the relais
+int GPIO0 = 0;
+// State of the relais
+int state = LOW;
+// Flag used for debouncing the push-button
+bool debounce = false;
+/*
+ * Called once during the initialization phase after reset
+ ****/
+void setup() {
+  // setup serial port
+  Serial.begin(115200);
+  // setup WiFi
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
+  // setup pins
+  // GPIO2 will be used to activate the relais
+  // GPIO0 will be an input that is used to turn on the relais using a button
+  pinMode(GPIO2, OUTPUT);
+  pinMode(GPIO0, INPUT);
+  attachInterrupt(GPIO0, fallingEdge, FALLING);
+}
+void fallingEdge() {
+  if(!debounce) {
+    state = !state;
+    digitalWrite(GPIO2, state);
+    debounce = true;
+  }
+  // Do not call other functions in this interrupt (such as delay, etc.). This only causes problems.
+}
+
+void setup_wifi() {
+  delay(10);
+  // We start by connecting to a WiFi network
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+ /*
+  * MQTT callback function. It is always called with we receive a message on the subscribed topics.
+  * The topic itself is given as a parameter of the function.
+  ****/
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Message arrived [");
+  Serial.print(topic);
+  Serial.print("] ");
+  int i;
+  char string[50];
+  char lowerString[50];
+  // Copy the payload into a C-String and convert all letters into lower-case
+  for (i = 0; i < length; i++) {
+    string[i] = (char)payload[i];
+    lowerString[i] = tolower(string[i]);
+  }
+  string[i]=0;
+  lowerString[i]=0;
+  Serial.print(lowerString);
+
+  // If the paylaod contains one of the predefined messages then turn on/off the relais
+  if(strcmp(lowerString, CMD_RELAIS_ON) == 0)
+    digitalWrite(GPIO2, HIGH);
+  else if(strcmp(lowerString, CMD_RELAIS_OFF) == 0)
+    digitalWrite(GPIO2, LOW);
+
+  Serial.println();
+}
+/*
+ * Can be used to reconnect to the MQTT-Broker, in case we loose the connection inbetween
+ ****/
+void reconnect() {
+  // Loop until we're reconnected
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    // Attempt to connect
+    if (client.connect(DEVICE_ID)) {
+      Serial.println("connected");
+      // Subscribe to a topic
+      if(client.subscribe(mqtt_subs_topic))
+        Serial.println("Subscribed to the specified topic");
+      else
+        Serial.println("Failed to subscribe to the specified topic");
+
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" trying again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
+}
+/*
+ * This function will be called after setup() in an infinite loop
+ ****/
+void loop() {
+  if (!client.connected()) {
+    reconnect();
+  }
+
+  Serial.println("I am still alive...") ;
+  // send message to the MQTT topic
+  client.publish(mqtt_pubs_topic, "I am still alive...");
+
+  // Example of a retained message
+  //client.publish(mqtt_topic, "This will be retained", true);
+  client.loop();
+  delay(2000);
+  // After two seconds we can be sure that the button is debounced. The interrupt can also
+  // come during the delay, but it unlikely to happen exactly (few ns) before the delay is over.
+  debounce = false;
+}
+{% endhighlight %}
+
+## Usage
+
+Once the ESP-01 is flashed with the above program, there are basically two possibilities to turn on and off the electrical outlet:
+1. You may use the button S2 to toggle the outlet. With every impulse generated by the button the state of the relay is inverted.
+2. MQTT: You can use a MQTT client to publish messages to a specified topic and control the outlet with these messages. In this example (see definitions in the above code), the following configuration is used:
+
+{% highlight plaintext %}
+MQTT-Broker:        iot.eclipse.org
+Port:               1883
+Topic:              gf3heTS11c/plug-01
+Accepted Messages:  DEVICE=ON
+                    DEVICE=OFF
+{% endhighlight %}
+
+## Future work
+
+Although this prototype is already working quite well, there is still some work that can be done:
+- Request current state of the outlet via MQTT
+- Instead of a standard relay one could use bi-stable relay. This would save some energy and would take load off the power supply
+- Addressing and communication scheme for more complex scenarios
+- Smart-phone App for managing the outlets and other MQTT-capable devices
+- Integration into larger smart-home solutions

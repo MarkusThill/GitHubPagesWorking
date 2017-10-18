@@ -6,9 +6,9 @@ categories:
 description:
 tags: []
 image:
-  feature:
-  credit:
-  creditlink:
+  feature: cows.jpg
+  credit: Ben Blumenfeld
+  creditlink: https://unsplash.com/collections/curated/93
 comments:
 share:
 date: 2017-10-18T14:45:46+02:00
@@ -57,7 +57,7 @@ into your config file. In order to resize the slideshows properly, you can add t
 </script>
 {% endhighlight %}
 
-Finally, you have to ensure that a permalink is used in the Markdown files. For instance in the file `_slides/my-pics1.md` you add the permalink in the header is specified as follows:
+Finally, you have to ensure that a permalink is used in the Markdown files. For instance, in the file `_slides/my-pics1.md` you add the permalink in the header is specified as follows:
 
 {% highlight markdown %}
 permalink: /slides/my-pics1.html
