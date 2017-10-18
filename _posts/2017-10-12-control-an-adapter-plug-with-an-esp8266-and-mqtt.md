@@ -132,15 +132,6 @@ Now, after you are sure that your ESP is working as desired and you are comforta
 
 
 The following images show how the circuit board and the final adapter plug could look like:
+<iframe class="slideshow-iframe" src="{{ site.url}}/slides/controlAdapterPlug.html" style="width:100%" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>
 
 Source code:
-
-![TODO]({{ site.url }}/images/2017-10-12-control-an-adapter-plug-with-an-esp8266-and-mqtt/electronics1.jpg)
-
-![TODO]({{ site.url }}/images/2017-10-12-control-an-adapter-plug-with-an-esp8266-and-mqtt/electronics2.jpg)
-
-![TODO]({{ site.url }}/images/2017-10-12-control-an-adapter-plug-with-an-esp8266-and-mqtt/electronics3.jpg)
-
-![TODO]({{ site.url }}/images/2017-10-12-control-an-adapter-plug-with-an-esp8266-and-mqtt/electronics4.jpg)
-
-![TODO]({{ site.url }}/images/2017-10-12-control-an-adapter-plug-with-an-esp8266-and-mqtt/electronics5.jpg)
