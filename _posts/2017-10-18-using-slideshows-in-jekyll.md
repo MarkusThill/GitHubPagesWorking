@@ -35,7 +35,19 @@ When you have many images for a blog post it might make sense to organize all im
      output: true
 {% endhighlight %}
 
-into your config file.
+into your config file. In order to resize the slideshows properly, you can add the following lines to `_includes/head.html`, so that you do not have to specify the height of the slideshow later:
+
+{% highlight html %}
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
+{% endhighlight %}
+
+###
+permalink: /slides/mypics1.html
+
 
 {% highlight html %}
 <iframe class="slideshow-iframe" src="{{ site.url}}/slides/my-pics1.html"

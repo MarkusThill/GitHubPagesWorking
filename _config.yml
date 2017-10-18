@@ -1,6 +1,20 @@
 title:            ML & Stats
 description:      Describe your website here.
 
+
+defaults:
+  -
+    scope:
+      path: "_slides"
+    values:
+      layout: "iframe"
+
+collections:
+  slides:
+    output: true
+
+
+
 # put your disqus here
 disqus_shortname:
 reading_time:     true # if true, shows the estimated reading time for a post
